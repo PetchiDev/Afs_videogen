@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from '@tanstack/react-router';
 import { gsap } from 'gsap';
+import { toast } from 'react-toastify';
 import { videoService } from '@/services/video.service';
 import useVideoStore from '@/store/useVideoStore';
 import CinematicLoader from './CinematicLoader';
@@ -8,7 +9,7 @@ import styles from './VideoGenerator.module.css';
 
 const VideoGenerator = () => {
   const [prompt, setPrompt] = useState('');
-  const [duration, setDuration] = useState(1);
+  const [duration, setDuration] = useState(0.5);
   const [isLoading, setIsLoading] = useState(false);
   const cardRef = useRef(null);
   const navigate = useNavigate();
@@ -43,15 +44,21 @@ const VideoGenerator = () => {
       navigate({ to: `/player/${result.job_id}` });
     } catch (error) {
       console.error('Generation failed:', error);
-      alert('Failed to generate video. Please try again.');
+      const msg = error?.response?.data?.message || error?.message || 'Failed to generate video. Please try again.';
+      toast.error(msg, { toastId: 'gen-error' });
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleDurationChange = (val) => {
-    const newVal = Math.max(1, Math.min(10, duration + val));
+    const newVal = Math.max(0.5, Math.min(10, parseFloat((duration + val).toFixed(1))));
     setDuration(newVal);
+  };
+
+  const handleDurationInput = (e) => {
+    const val = parseFloat(e.target.value);
+    if (!isNaN(val)) setDuration(Math.max(0.5, Math.min(10, val)));
   };
 
   if (isLoading) return <CinematicLoader message="Synthesizing Reality..." />;
@@ -95,18 +102,19 @@ const VideoGenerator = () => {
                   Duration (min)
                 </label>
                 <div className={styles.numberStepper}>
-                  <button type="button" onClick={() => handleDurationChange(-1)} className={styles.stepBtn}>
+                  <button type="button" onClick={() => handleDurationChange(-0.5)} className={styles.stepBtn}>
                     <span className="material-symbols-outlined">remove</span>
                   </button>
                   <input
                     type="number"
                     value={duration}
-                    onChange={(e) => setDuration(parseInt(e.target.value) || 1)}
+                    onChange={handleDurationInput}
                     className={styles.durationInput}
-                    min="1"
+                    min="0.5"
                     max="10"
+                    step="0.5"
                   />
-                  <button type="button" onClick={() => handleDurationChange(1)} className={styles.stepBtn}>
+                  <button type="button" onClick={() => handleDurationChange(0.5)} className={styles.stepBtn}>
                     <span className="material-symbols-outlined">add</span>
                   </button>
                 </div>

@@ -68,7 +68,7 @@ const Header = ({ userName = 'User', userEmail = '' }) => {
         </button>
         <div className={styles.logoWrapper}>
           <img src={AFSLogo} alt="AFS Logo" className={styles.favicon} />
-          <span className={styles.platformTitle}>AFS VIDEO GEN</span>
+          <span className={styles.platformTitle}>AFS AVATAR GENERATOR</span>
         </div>
       </div>
 

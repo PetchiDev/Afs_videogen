@@ -68,12 +68,12 @@ const CinematicLoader = ({ message = "Synthesizing your cinematic masterpiece...
       </div>
 
       <div className={styles.loaderContent}>
-        <div className={styles.brandLogo}>AFS VIDEO GEN</div>
+        <div className={styles.brandLogo}>AFS AVATAR GENERATOR</div>
         <h2 ref={textRef} className={styles.loaderTitle}>{message}</h2>
         <div className={styles.progressWrapper}>
           <div ref={barRef} className={styles.progressBar}></div>
         </div>
-        <p className={styles.loaderHint}>Processing complex neural frames. Estimated time: 5 minutes.</p>
+        <p className={styles.loaderHint}>Processing complex neural frames. Estimated time less than: 2 minutes.</p>
       </div>
     </div>
   );
