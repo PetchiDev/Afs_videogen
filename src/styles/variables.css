@@ -1,0 +1,56 @@
+:root {
+  /* Neon Auteur Design Tokens - Base */
+  --color-primary: #EE202E; /* Neon Red Pulse */
+  --color-primary-dim: #D71A27;
+  --color-primary-container: #FF5A66;
+  
+  --color-secondary: #A68CFF;
+  --color-secondary-container: #591ADC;
+  
+  --color-tertiary: #81ECFF;
+  --color-tertiary-dim: #00D4EC;
+  
+  /* Surface philosophy */
+  --color-bg-primary: #0E0E0F;
+  --color-bg-secondary: #131314;
+  --color-bg-tertiary: #1A191B;
+  --color-bg-elevated: #262627;
+  --color-bg-sunken: #000000;
+  
+  /* Text */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #ADAAAB;
+  --color-text-dim: #767576;
+  
+  /* Borders */
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-hover: rgba(238, 32, 46, 0.3);
+
+  /* Radius */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-xl: 1.5rem;
+
+  /* Typography */
+  --font-family-headline: 'Space Grotesk', sans-serif;
+  --font-family-body: 'Manrope', sans-serif;
+  
+  --transition-cinematic: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --transition-smooth: all 0.3s ease;
+}
+
+[data-theme='light'] {
+  --color-bg-primary: #F7FAFC;
+  --color-bg-secondary: #EDF2F7;
+  --color-bg-tertiary: #E2E8F0;
+  --color-bg-elevated: #FFFFFF;
+  --color-bg-sunken: #F1F5F9;
+  
+  --color-text-primary: #171923;
+  --color-text-secondary: #4A5568;
+  --color-text-dim: #718096;
+  
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border-hover: rgba(238, 32, 46, 0.4);
+}

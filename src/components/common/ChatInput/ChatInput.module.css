@@ -1,0 +1,104 @@
+.chatInputContainer {
+  position: absolute;
+  bottom: 8px;
+  /* Lift it slightly from the container bottom */
+  left: 0;
+  right: 0;
+  padding: 16px 20px 24px;
+  background: linear-gradient(to top, var(--color-bg-secondary) 60%, transparent);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.inputWrapper {
+  width: calc(100% - 40px);
+  max-width: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-primary);
+  border: 1.5px solid var(--color-primary);
+  border-radius: 20px;
+  padding: 8px 12px 8px 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  pointer-events: auto;
+}
+
+.inputWrapper:focus-within {
+  border-color: #EE202E;
+  box-shadow: 0 4px 20px rgba(238, 32, 46, 0.15);
+}
+
+.inputField {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 0;
+  font-size: 16px;
+  color: var(--color-text-primary);
+  outline: none;
+}
+
+.inputField::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+}
+
+.sendButton {
+  background: #EE202E;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 10px;
+}
+
+.sendButton:hover:not(:disabled) {
+  background: #d31a26;
+  transform: scale(1.05);
+}
+
+.sendButton:disabled {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.searchIcon {
+  width: 24px;
+  height: 24px;
+  filter: var(--theme-icon-filter);
+}
+
+.sendButton:not(:disabled) .searchIcon {
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+  .chatInputContainer {
+    padding: 15px;
+  }
+
+  .inputWrapper {
+    padding: 3px 10px 3px 18px;
+  }
+
+  .inputField {
+    font-size: 15px;
+  }
+
+  .sendButton {
+    width: 36px;
+    height: 36px;
+  }
+}

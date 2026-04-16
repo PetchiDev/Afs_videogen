@@ -1,0 +1,27 @@
+name: Azure Static Web Apps CI/CD - Chat Branch
+
+pr:
+  branches:
+    include:
+      - chat
+trigger:
+  branches:
+    include:
+      - chat
+
+jobs:
+- job: build_and_deploy_job
+  displayName: Build and Deploy Job
+  pool:
+    vmImage: ubuntu-latest
+  variables:
+  - group: SWA-Chat-App-Variable-Group # Step 2: Create this group in Azure DevOps Library
+  steps:
+  - checkout: self
+    submodules: true
+  - task: AzureStaticWebApp@0
+    inputs:
+      azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_API_TOKEN) # Step 2: Add this secret variable
+      app_location: "/" 
+      api_location: "" 
+      output_location: "dist" 
