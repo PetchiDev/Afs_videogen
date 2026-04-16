@@ -1,12 +1,12 @@
 .sidebar {
   width: 264px;
-  height: 100vh;
+  height: 100%;
   position: relative;
   background-color: var(--color-bg-secondary);
   display: flex;
   flex-direction: column;
-  padding: 80px 0 32px 0;
-  z-index: 100; /* Higher than header on mobile */
+  padding: 24px 0;
+  z-index: 100;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-right: 1px solid var(--color-border);
 }
@@ -55,45 +55,7 @@
   background-color: #EDF2F7;
 }
 
-.projectCard {
-  margin: 0 20px 40px;
-  padding: 16px;
-  background-color: var(--color-bg-tertiary);
-  border-radius: var(--border-radius-lg);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border: 1px solid var(--color-border);
-}
 
-[data-theme='light'] .projectCard {
-  background-color: #FFFFFF;
-}
-
-.projectIcon {
-  width: 36px;
-  height: 36px;
-  background-color: rgba(238, 32, 46, 0.1);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-primary);
-}
-
-.projectName {
-  font-family: var(--font-family-headline);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
-}
-
-.projectTag {
-  font-size: 9px;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-  font-weight: 800;
-}
 
 .nav {
   flex: 1;

@@ -104,7 +104,8 @@ export const ROUTES = {
   REGISTER: '/register',
   DASHBOARD: '/dashboard',
   PROFILE: '/profile',
-  PLAYER: '/player/$jobId'
+  PLAYER: '/player/$jobId',
+  REPORTS: '/reports'
 };
 
 // Status Codes

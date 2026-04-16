@@ -20,14 +20,16 @@ const AuthenticatedLayout = () => {
   return (
     <AuthGuard>
       <div className={styles.app}>
-        <Sidebar aria-label="Main Navigation" />
-        <div className={styles.mainContent}>
-          <Header
-            userName={user?.name || 'User'}
-            userEmail={user?.username || ''}
-          />
-          <div className={styles.contentArea}>
-            <Outlet />
+        <Header
+          userName={user?.name || 'User'}
+          userEmail={user?.username || ''}
+        />
+        <div className={styles.mainBody}>
+          <Sidebar aria-label="Main Navigation" />
+          <div className={styles.mainContent}>
+            <div className={styles.contentArea}>
+              <Outlet />
+            </div>
           </div>
         </div>
       </div>

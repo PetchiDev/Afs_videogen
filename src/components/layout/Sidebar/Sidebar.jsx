@@ -29,9 +29,7 @@ const Sidebar = () => {
 
   const navigationItems = [
     { id: 'home', label: 'Studio', icon: 'home', path: ROUTES.HOME },
-    { id: 'projects', label: 'Projects', icon: 'movie_filter', path: '/projects' },
-    { id: 'templates', label: 'Templates', icon: 'auto_awesome_motion', path: '/templates' },
-    { id: 'archive', label: 'Archive', icon: 'inventory_2', path: '/archive' }
+    { id: 'reports', label: 'Reports', icon: 'bar_chart', path: ROUTES.REPORTS }
   ];
 
   const isActiveRoute = (path) => {
@@ -56,15 +54,7 @@ const Sidebar = () => {
           </button>
         </div>
 
-        <div className={`${styles.projectCard} sidebar-animate`}>
-          <div className={styles.projectIcon}>
-            <span className="material-symbols-outlined">movie_filter</span>
-          </div>
-          <div className={styles.projectInfo}>
-            <h3 className={styles.projectName}>Project Alpha</h3>
-            <p className={styles.projectTag}>Cinematic Suite</p>
-          </div>
-        </div>
+
 
         <nav className={styles.nav}>
           <div className={styles.navGroup}>
