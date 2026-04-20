@@ -1,0 +1,518 @@
+/* ================================================
+   ReportsPage styles – dark / light theme aware
+   ================================================ */
+
+.page {
+  padding: 32px 40px 60px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── Page Header ─────────────────────────────────── */
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pageTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.pageTitle .material-symbols-outlined {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.pageSubtitle {
+  margin: 6px 0 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.refreshBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.refreshBtn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: rotate(90deg);
+}
+
+/* ── Table Card ──────────────────────────────────── */
+.tableCard {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Table ───────────────────────────────────────── */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+.table thead tr {
+  background: var(--color-bg-elevated);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.table th {
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+  transition: background 0.2s ease;
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background: var(--color-bg-tertiary);
+}
+
+.table td {
+  padding: 14px 20px;
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  vertical-align: middle;
+}
+
+.indexCell {
+  color: var(--color-text-dim) !important;
+  font-size: 0.78rem !important;
+  font-weight: 600;
+  width: 40px;
+}
+
+.fileNameCell {
+  font-weight: 600;
+}
+
+.durationCell {
+  color: var(--color-text-secondary) !important;
+  white-space: nowrap;
+}
+
+.dateCell {
+  color: var(--color-text-secondary) !important;
+  font-size: 0.8rem !important;
+  white-space: nowrap;
+}
+
+/* ── Video Link ───────────────────────────────────── */
+.videoLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 99px;
+  border: 1px solid rgba(238, 32, 46, 0.25);
+  background: rgba(238, 32, 46, 0.06);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.videoLink:hover {
+  background: rgba(238, 32, 46, 0.15);
+  border-color: var(--color-primary);
+}
+
+.videoLink .material-symbols-outlined {
+  font-size: 1rem;
+}
+
+/* ── Actions ──────────────────────────────────────── */
+.actionsCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actionBtn .material-symbols-outlined {
+  font-size: 1.1rem;
+}
+
+.actionBtn:hover {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  border-color: var(--color-text-secondary);
+}
+
+.actionBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.deleteActionBtn:hover {
+  background: rgba(238, 32, 46, 0.1);
+  color: var(--color-primary);
+  border-color: rgba(238, 32, 46, 0.4);
+}
+
+/* ── Empty / Loading states ───────────────────────── */
+.emptyState,
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 60px 24px;
+  color: var(--color-text-dim);
+}
+
+.emptyState .material-symbols-outlined {
+  font-size: 3rem;
+  opacity: 0.4;
+}
+
+.emptyState p {
+  font-size: 0.9rem;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Modal Backdrop ──────────────────────────────── */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeInBackdrop 0.2s ease;
+}
+
+@keyframes fadeInBackdrop {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Modal ───────────────────────────────────────── */
+.modal {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 32px;
+  width: min(460px, 94vw);
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  animation: slideUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.detailModal {
+  width: min(640px, 96vw);
+  text-align: left;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.modalIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(238, 32, 46, 0.1);
+  border: 1px solid rgba(238, 32, 46, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--color-primary);
+}
+
+.modalIcon .material-symbols-outlined {
+  font-size: 1.75rem;
+}
+
+.modalTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 12px;
+}
+
+.modalBody {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ── Buttons ─────────────────────────────────────── */
+.cancelBtn {
+  padding: 10px 24px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelBtn:hover {
+  background: var(--color-bg-tertiary);
+}
+
+.confirmDeleteBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 10px;
+  border: none;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.confirmDeleteBtn:hover {
+  background: #c7111c;
+  transform: translateY(-1px);
+}
+
+.confirmDeleteBtn .material-symbols-outlined {
+  font-size: 1.1rem;
+}
+
+/* ── Detail Modal internals ───────────────────────── */
+.detailHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.closeIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeIcon:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.detailBody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detailLabel {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-dim);
+  display: block;
+}
+
+.detailValue {
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.statusSucceeded { color: #10b981 !important; font-weight: 700 !important; }
+.statusFailed    { color: var(--color-primary) !important; font-weight: 700 !important; }
+.statusRunning   { color: #f59e0b !important; font-weight: 700 !important; }
+
+.videoPreviewWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.videoPreview {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: #000;
+  max-height: 280px;
+  object-fit: contain;
+}
+
+.errorBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(238, 32, 46, 0.08);
+  border: 1px solid rgba(238, 32, 46, 0.2);
+  color: var(--color-primary);
+  font-size: 0.875rem;
+}
+
+.detailFooter {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.openLinkBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.openLinkBtn:hover {
+  background: #c7111c;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 1024px) {
+  .page {
+    padding: 24px 20px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 1.4rem;
+  }
+
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modalActions,
+  .detailFooter {
+    flex-direction: column;
+  }
+
+  .modal {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 16px 12px 40px;
+  }
+
+  .table th,
+  .table td {
+    padding: 12px 14px;
+  }
+}

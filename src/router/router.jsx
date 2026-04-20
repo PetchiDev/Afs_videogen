@@ -11,6 +11,7 @@ import { useMsal } from '@azure/msal-react';
 // Lazy load pages
 import PromptPage from '@/pages/PromptPage';
 import VideoPlayerPage from '@/pages/VideoPlayerPage';
+import ReportsPage from '@/pages/ReportsPage/ReportsPage';
 
 const AuthenticatedLayout = () => {
   const { accounts } = useMsal();
@@ -59,10 +60,17 @@ const playerRoute = createRoute({
   component: VideoPlayerPage
 });
 
+const reportsRoute = createRoute({
+  getParentRoute: () => authLayoutRoute,
+  path: ROUTES.REPORTS,
+  component: ReportsPage
+});
+
 const routeTree = rootRoute.addChildren([
   authLayoutRoute.addChildren([
     indexRoute,
-    playerRoute
+    playerRoute,
+    reportsRoute
   ])
 ]);
 

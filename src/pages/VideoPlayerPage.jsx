@@ -95,20 +95,56 @@ const VideoPlayerPage = () => {
       // Fallback: copy URL to clipboard
       try {
         await navigator.clipboard.writeText(videoUrl);
-        toast.success('Video link copied to clipboard! 📋');
+        toast.success('Video link copied to clipboard! ');
       } catch {
         toast.error('Unable to copy link. Please try manually.');
       }
     }
   };
 
-  const handleDownload = () => {
-    const videoUrl = currentVideo?.video_url;
-    if (!videoUrl) {
-      toast.error('No video available.');
+  const handleDownload = async () => {
+    const downloadUrl = currentVideo?.download_url || currentVideo?.video_url;
+    if (!downloadUrl) {
+      toast.error('No video available for download.');
       return;
     }
-    window.open(videoUrl, '_blank');
+
+    const toastId = toast.loading('Preparing download...');
+    try {
+      const response = await fetch(downloadUrl);
+      if (!response.ok) throw new Error('Network response was not ok');
+
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      // Use filename from response if available, else generate 
+      const fileName = currentVideo?.filename || `afs-video-${jobId?.slice(0, 8)}.mp4`;
+      link.download = fileName;
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      URL.revokeObjectURL(blobUrl);
+      toast.update(toastId, {
+        render: 'Download started!',
+        type: 'success',
+        isLoading: false,
+        autoClose: 3000
+      });
+    } catch (err) {
+      console.error('Download failed:', err);
+      toast.update(toastId, {
+        render: 'Download failed. Opening in new tab...',
+        type: 'info',
+        isLoading: false,
+        autoClose: 3000
+      });
+      // Final fallback to new tab
+      window.open(downloadUrl, '_blank');
+    }
   };
 
   if (isRegenerating) return <CinematicLoader message="Refining Director's Intent..." />;

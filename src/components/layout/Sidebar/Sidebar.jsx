@@ -64,7 +64,6 @@ const Sidebar = () => {
                 to={item.path}
                 className={`${styles.navItem} ${isActiveRoute(item.path) ? styles.active : ''} sidebar-animate`}
                 onClick={closeMobileMenu}
-                disabled={item.id !== 'home'}
               >
                 <span className={`material-symbols-outlined ${styles.navIcon}`}>
                   {item.icon}
@@ -75,10 +74,10 @@ const Sidebar = () => {
           </div>
 
           <div className={`${styles.actionWrapper} sidebar-animate`}>
-            <button className={styles.newPromptBtn}>
+            <Link to={ROUTES.HOME} className={styles.newPromptBtn} onClick={closeMobileMenu}>
               <span className="material-symbols-outlined">add</span>
               <span>New Prompt</span>
-            </button>
+            </Link>
           </div>
         </nav>
 

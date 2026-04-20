@@ -36,8 +36,7 @@ const VideoGenerator = () => {
     try {
       const result = await videoService.generateVideo(prompt, duration);
       setVideo({
-        job_id: result.job_id,
-        video_url: result.video_url,
+        ...result,
         original_text: prompt,
         duration_minutes: duration
       });
